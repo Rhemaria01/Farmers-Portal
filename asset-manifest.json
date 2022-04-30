@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/Farmer-Portal/static/css/main.4354c260.chunk.css",
+    "main.js": "/Farmer-Portal/static/js/main.dbcd4d2c.chunk.js",
+    "main.js.map": "/Farmer-Portal/static/js/main.dbcd4d2c.chunk.js.map",
+    "runtime-main.js": "/Farmer-Portal/static/js/runtime-main.b4bb4f3d.js",
+    "runtime-main.js.map": "/Farmer-Portal/static/js/runtime-main.b4bb4f3d.js.map",
+    "static/css/2.9b82fa77.chunk.css": "/Farmer-Portal/static/css/2.9b82fa77.chunk.css",
+    "static/js/2.09e5abba.chunk.js": "/Farmer-Portal/static/js/2.09e5abba.chunk.js",
+    "static/js/2.09e5abba.chunk.js.map": "/Farmer-Portal/static/js/2.09e5abba.chunk.js.map",
+    "static/js/3.f3fdccf7.chunk.js": "/Farmer-Portal/static/js/3.f3fdccf7.chunk.js",
+    "static/js/3.f3fdccf7.chunk.js.map": "/Farmer-Portal/static/js/3.f3fdccf7.chunk.js.map",
+    "index.html": "/Farmer-Portal/index.html",
+    "static/css/2.9b82fa77.chunk.css.map": "/Farmer-Portal/static/css/2.9b82fa77.chunk.css.map",
+    "static/css/main.4354c260.chunk.css.map": "/Farmer-Portal/static/css/main.4354c260.chunk.css.map",
+    "static/js/2.09e5abba.chunk.js.LICENSE.txt": "/Farmer-Portal/static/js/2.09e5abba.chunk.js.LICENSE.txt",
+    "static/media/Consumer_logo.d0862271.png": "/Farmer-Portal/static/media/Consumer_logo.d0862271.png",
+    "static/media/Farmer_logo.6a98c009.png": "/Farmer-Portal/static/media/Farmer_logo.6a98c009.png",
+    "static/media/banana.6dcbcda9.jpg": "/Farmer-Portal/static/media/banana.6dcbcda9.jpg",
+    "static/media/barley.f0757eee.png": "/Farmer-Portal/static/media/barley.f0757eee.png",
+    "static/media/corn.facd33f4.png": "/Farmer-Portal/static/media/corn.facd33f4.png",
+    "static/media/grapes.b14c9cd4.jpg": "/Farmer-Portal/static/media/grapes.b14c9cd4.jpg",
+    "static/media/home.css": "/Farmer-Portal/static/media/lunchcopy1.5a0c5743.jpg",
+    "static/media/mango.59774fa0.jpg": "/Farmer-Portal/static/media/mango.59774fa0.jpg",
+    "static/media/mc.8e0a5bb2.png": "/Farmer-Portal/static/media/mc.8e0a5bb2.png",
+    "static/media/rice.84d50f64.png": "/Farmer-Portal/static/media/rice.84d50f64.png",
+    "static/media/wheat.e62b4444.png": "/Farmer-Portal/static/media/wheat.e62b4444.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b4bb4f3d.js",
+    "static/css/2.9b82fa77.chunk.css",
+    "static/js/2.09e5abba.chunk.js",
+    "static/css/main.4354c260.chunk.css",
+    "static/js/main.dbcd4d2c.chunk.js"
+  ]
+}
