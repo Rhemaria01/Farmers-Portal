@@ -1,0 +1,8 @@
+Step 1: 
+npm install (To install node modules and libraries to run the given code)
+
+
+Before starting connect withe the firbase instructions given in the firebase.txt
+
+Step 2:
+npm start (To start the project)

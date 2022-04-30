@@ -1,0 +1,21 @@
+.btn1{
+    height: 45px;
+    width: 200px;
+    border: none;
+    outline: none;
+    background-color:#4c9a2a;
+    color: white;
+    font-weight: 700;
+    font-size: 20px;
+    border-radius: 60px;
+}
+.btn1:hover{
+    background-color: #36940e;
+    transition: 0.5s;
+}
+
+.icons{
+    font-size: 2.5rem;
+    cursor: pointer;
+    padding-right: 5px;
+}

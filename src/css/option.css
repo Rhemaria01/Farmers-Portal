@@ -1,0 +1,26 @@
+.img01{
+    background:-webkit-radial-gradient(#fffc64,#52ff5a);
+    height: 450px;
+    width: 450px;
+    display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  align-items: center;
+}
+.img02{
+    background:-webkit-radial-gradient(pink,#bb00bb);
+    height: 450px;
+    width: 450px;
+    display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  align-items: center;
+}
+.icons{
+    color:black;
+    font-size: 200px;
+    cursor: pointer;
+    padding-left: 20px;
+}

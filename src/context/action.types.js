@@ -1,0 +1,4 @@
+export const SET_LOADING = "SET_LOADING";
+export const SET_PRODUCT = "SET_PRODUCT";
+export const PRODUCT_TO_UPDATE = "PRODUCT_TO_UPDATE";
+export const SET_SINGLE_PRODUCT = "SET_SINGLE_PRODUCT";

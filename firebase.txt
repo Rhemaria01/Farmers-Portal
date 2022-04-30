@@ -1,0 +1,13 @@
+Step1: Add Project
+
+Step2: Create Project
+
+Step3: Register App
+
+Step4: Copy FirebaseConfig from firebase SDK Paste it in src/utils/ config.js
+
+Step5: In Authentication Enable Email/Password (adding others is optional)
+
+Step6: In Storage create a bucket. (Use Rules as per your needs)
+
+Step7: In Realtime Database Create a database
