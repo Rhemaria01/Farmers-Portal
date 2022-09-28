@@ -18,40 +18,97 @@ const Payment = ({cartProduct, cartProductKey, setFlag, grandTotal}) => {
     const history = useHistory()
     const context = useContext(UserContext)
     const handleSubmit = async () => {
-      
+      console.log(grandTotal)
         cartProduct.forEach(product => {
           try {
-          
-            firebase
+            if (!product.partialSeller) {
+              firebase
+                .database()
+                .ref("order/" + v4())
+                .set({
+                  name: product.name,
+                  price: product.price,
+                  quantity: product.quantity,
+                  total: product.quantity*product.price,
+                  picture: product.picture,
+                  consumerUsername: context.user.email,
+                  sellerUsername: product.username,
+                  status: "Received"
+                });
+                firebase
+            .database()
+            .ref(`/products/${product.itemKey}`) 
+            .remove()
+            .then(() => {
+              toast("Order Placed Successfully", { type: "success" });
+            })
+            .catch(err => console.log(err));
+            }
+            else {
+              {console.log(product.quantity == product.sellQuantity)}
+              if (product.quantity == product.sellQuantity) {
+                firebase
+                .database()
+                .ref("order/" + v4())
+                .set({
+                  name: product.name,
+                  price: product.price,
+                  quantity: product.quantity,
+                  total: product.quantity*product.price,
+                  picture: product.picture,
+                  consumerUsername: context.user.email,
+                  sellerUsername: product.username,
+                  status: "Received"
+                });
+                firebase
+            .database()
+            .ref(`/products/${product.itemKey}`) 
+            .remove()
+            .then(() => {
+              toast("Order Placed Successfully", { type: "success" });
+            })
+            .catch(err => console.log(err));
+              }
+              else { 
+                firebase
+                  .database()
+                  .ref("order/" + v4())
+                  .set({
+                    name: product.name,
+                    price: product.price,
+                    quantity: product.sellQuantity,
+                    total:  product.sellQuantity*product.price,
+                    picture: product.picture,
+                    consumerUsername: context.user.email,
+                    sellerUsername: product.username,
+                    status: "Received"
+                  });
+                  firebase
               .database()
-              .ref("order/" + v4())
+              .ref(`/products/${product.itemKey}`) 
               .set({
                 name: product.name,
                 price: product.price,
-                quantity: product.quantity,
-                total: product.quantity*product.price,
+                quantity: product.quantity-product.sellQuantity,
+                total: (product.quantity-product.sellQuantity)*product.price,
                 picture: product.picture,
-                consumerUsername: context.user.email,
-                sellerUsername: product.username,
-                status: "Received"
-              });
+                username: product.username,
+                partialSeller: true
+              })
+              
+              .then(() => {
+                toast("Order Placed Successfully", { type: "success" });
+              })
+              .catch(err => console.log(err));
+              }
+              }
           } catch (error) {
             console.log(error);
             return toast(error.message,{type:"error"})
           }
         })
     
-        cartProductKey.forEach(productKey => {
-          
-            firebase
-            .database()
-            .ref(`/products/${productKey}`) 
-            .remove()
-            .then(() => {
-              toast("Order Placed Successfully", { type: "success" });
-            })
-            .catch(err => console.log(err));
-        });
+        
 
 
        

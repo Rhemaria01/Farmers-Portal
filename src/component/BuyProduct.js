@@ -23,8 +23,6 @@ import { toast } from "react-toastify";
 const Product = ({ product, productKey, addInCart}) => {
 
   const type = useContext(UserTypeContext)
-
-
   const { dispatch } = useContext(ProductContext);
 
   const history = useHistory();
@@ -59,6 +57,10 @@ const Product = ({ product, productKey, addInCart}) => {
   
           <h4 className="text-primary">
             {`Price: ${product.total}`}
+          </h4>
+          <h4 className="text-success fs-6">
+            
+            {`Selling Type: ${product.partialSeller? "Partial Selling Available":"Only Bulk Selling Available" }`}
           </h4>
           </div>
           

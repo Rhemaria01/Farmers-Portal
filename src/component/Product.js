@@ -66,6 +66,11 @@ const Product = ({ product, productKey, setUserCheck }) => {
           <h4 className="text-primary">
             {`TOTAL: ₹${product.total}`}
           </h4>  
+
+          <h4 className="text-success fs-6">
+            
+            {`Selling Type: ${product.partialSeller? "Partial Selling Available":"Only Bulk Selling Available" }`}
+          </h4>  
           </div>
           <MdDelete
                 onClick={() => deleteProduct()}

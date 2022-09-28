@@ -1,9 +1,7 @@
-import React,{useState} from 'react'
-
-
-const Cart = ({cartProduct, cartProductKey, removeItem, setFlag, grandTotal}) => {
+import React,{useEffect, useState} from 'react';
+import Quantity from './Quantity';
+const Cart = ({cartProduct, cartProductKey, removeItem, setFlag, grandTotal, addToPrices}) => {   
     
-        
     
     return (
         
@@ -35,16 +33,18 @@ const Cart = ({cartProduct, cartProductKey, removeItem, setFlag, grandTotal}) =>
             
             
                 
-                {cartProduct.map(product =>{
+    {/* {console.log(cartProduct)} */}
+                {cartProduct.map((product,index) =>{
+                    
 
-    
+                    
                     return(<tbody><tr>
             <td><img className="uk-preserve-width uk-border-circle" src={product.picture} width={40} alt /></td>
             <td><h3 className="item-name" name="itemName">{product.name}</h3></td>
-            <td><h4>{product.price}</h4></td>
-            <td><h4>{`${product.quantity}Kg`}</h4></td>
-            <td><h4>{`₹${product.total}`}</h4></td>
-            <td><button class="uk-button uk-button-danger" type="button" onClick={() => removeItem(product, cartProductKey)}>Remove</button></td>
+            <td><h4>{"₹"+product.price}</h4></td>
+            <Quantity product = {product} index={index} addToPrices={addToPrices}/>
+            
+            <td><button class="uk-button uk-button-danger" type="button" onClick={() => removeItem(product, cartProductKey, index)}>Remove</button></td>
     
                 </tr>
                 </tbody>)})}
@@ -55,8 +55,9 @@ const Cart = ({cartProduct, cartProductKey, removeItem, setFlag, grandTotal}) =>
                   <h3 class = "item-name"><strong>Grand-Total</strong></h3>
               </td>
               <td class="uk-text-truncate"><h3></h3></td>
-              <td class="uk-text-truncate"><h3></h3></td>
-              <td class="uk-text-truncate grand-total"><h3><strong>{`₹${grandTotal}`}</strong></h3></td>
+              <td class="uk-text-truncate"><h3>₹{grandTotal}</h3></td>
+              
+              <td class="uk-text-truncate grand-total"><h3><strong></strong></h3></td>
               
           </tr>
                 </table>  

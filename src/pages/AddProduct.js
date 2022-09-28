@@ -33,6 +33,7 @@ const AddProduct = () => {
     const [name, setName] = useState("");
     const [price, setPrice] = useState("");
     const [quantity, setQuantity] = useState("");
+    const [partialSeller, setPartialSeller] = useState(true);
     const [total,setTotal] = useState(0);
     const [downloadUrl, setDownloadUrl] = useState(null);
 
@@ -106,6 +107,7 @@ const AddProduct = () => {
               total: quantity*price,
               picture: downloadUrl,
               username: context.user.email,
+              partialSeller,
             });
         } catch (error) {
           console.log(error);
@@ -211,7 +213,11 @@ const AddProduct = () => {
               {`TOTAL:₹${quantity*price}`}
               </Label>
             </FormGroup>
-           
+            <FormGroup>
+            <InputGroup className='form-check form-switch'>
+              <Input type='checkbox' className='form-check-input' checked={partialSeller} onChange={(e) => setPartialSeller(!partialSeller)}></Input><Label className="text-success fw-bolder ms-3 form-check-label" >Allow Partial Selling</Label>
+              </InputGroup>
+            </FormGroup>
             <Button
               type="submit"
               color="primary"

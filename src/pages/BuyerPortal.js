@@ -33,11 +33,18 @@ const BuyerPortal = () => {
   const [cartProduct, setCartProduct] =useState([])
   const [cartProductKey, setCartProductKey] =useState([])
   const [flag,setFlag] = useState(true)
-  let grandTotal =0
-    cartProduct.forEach(product => {
-        grandTotal = parseFloat(grandTotal) + parseFloat(product.total)
-    });
-  
+  const [grandTotal, setGrandTotal] = useState(0);
+  const prices = [];
+  const getGrandTotal = () => {
+    return grandTotal;
+  }
+  const grandTotalCalc = (prices) => {
+    setGrandTotal(0);
+    let grandTotalTemp = 0;
+    prices.map(price => grandTotalTemp += parseInt(price));
+    setGrandTotal(grandTotalTemp)
+    
+  }
 
 
     const addInCart = (product, productKey) => {
@@ -52,14 +59,35 @@ const BuyerPortal = () => {
         });
         return;
       }
-      
+      console.log(product)
       setCartProduct([...cartProduct,product])
       setCartProductKey([...cartProductKey,productKey])
     }
-    const removeItem = (product, productKey) =>  {
+    
 
+    const addToPrices = (quantPrice, index) => {
+        
+        if(prices.length-1 > index){
+            prices.push(parseInt(quantPrice.price))
+            
+        }
+        else{
+            
+            prices[index] = quantPrice.price;
+            // console.log(quantPrice.price)
+            
+        }
+        cartProduct[index].sellQuantity = quantPrice.quantity;
+        cartProduct[index].itemKey = cartProductKey[index];
+        grandTotalCalc(prices);
+    }
+    const removeItem = (product, productKey, index) =>  {
+      
+
+      prices.splice(index);
       setCartProductKey(cartProductKey.filter(singleKey => singleKey !== productKey))
       setCartProduct(cartProduct.filter(singleItem => singleItem !== product))
+      grandTotalCalc(prices);
     }
 
     const getProducts = async () => {
@@ -118,11 +146,12 @@ const BuyerPortal = () => {
           {Object.entries(products).map(([key, value]) => (
             <ListGroupItem key={key}>
               <BuyProduct product={value} productKey={key} addInCart={addInCart}/>
+              
             </ListGroupItem>
           ))}
         </ListGroup> 
-
-          {<Cart cartProduct={cartProduct} cartProductKey={cartProductKey} removeItem={removeItem} setFlag={setFlag} grandTotal={grandTotal}/>}
+            
+          {<Cart cartProduct={cartProduct} cartProductKey={cartProductKey} removeItem={removeItem} setFlag={setFlag} grandTotal={grandTotal} addToPrices={addToPrices}/>}
 
 
         </>
